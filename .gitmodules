@@ -1,0 +1,27 @@
+[submodule "themes/material-design"]
+	path = themes/material-design
+	url = https://github.com/pdevty/material-design
+[submodule "themes/temple"]
+	path = themes/temple
+	url = https://github.com/aos/temple.git
+[submodule "themes/one"]
+	path = themes/one
+	url = https://github.com/resugary/hugo-theme-one.git
+[submodule "themes/hugo-type-theme"]
+	path = themes/hugo-type-theme
+	url = https://github.com/digitalcraftsman/hugo-type-theme.git
+[submodule "themes/hugo-minimalist-theme"]
+	path = themes/hugo-minimalist-theme
+	url = https://github.com/digitalcraftsman/hugo-minimalist-theme.git
+[submodule "themes/hyde"]
+	path = themes/hyde
+	url = https://github.com/spf13/hyde
+[submodule "themes/hyde-x"]
+	path = themes/hyde-x
+	url = https://github.com/zyro/hyde-x
+[submodule "themes/blackburn"]
+	path = themes/blackburn
+	url = https://github.com/yoshiharuyamashita/blackburn.git
+[submodule "themes/galdebert-hyde"]
+	path = themes/galdebert-hyde
+	url = https://github.com/galdebert/hyde

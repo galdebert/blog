@@ -1,0 +1,10 @@
+{
+    "python.pythonPath": "${env:GA_PYTHON3_DIR}/python.exe",
+    "python.linting.enabled": true,
+    "python.linting.pylintArgs": ["--rcfile=${env:GA_SCRIPTS}/python/python-format"],
+    "python.formatting.autopep8Args" : ["--global-config", "${env:GA_SCRIPTS}/python/python-format"],
+
+    "files.exclude": {
+        "**/__pycache__": true
+    }
+}

@@ -1,0 +1,11 @@
+baseURL = "https://galdebert.github.io"
+languageCode = "en-us"
+title = "Guillaume Aldebert's blog"
+#theme = "ananke"
+theme = "galdebert-hyde"
+#disqusShortname = "spf13"
+#googleAnalytics = "Your tracking code"
+
+[params]
+themeColor = "theme-base-0d"
+description = "mostly dev"
