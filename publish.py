@@ -2,6 +2,7 @@
 
 import os
 import subprocess
+from distutils.dir_util import copy_tree
 from contextlib import contextmanager
 
 @contextmanager
@@ -13,14 +14,24 @@ def chg_cwd(path: str):
     finally:
         os.chdir(old_cwd)
 
+# check=True will raise an exception if returncode != 0
+# it's like subprocess.chek_output() but we still want to print output even if returncode != 0
+def run(cmd, check: bool):
+    print(' '.join(cmd))
+    completed = subprocess.run(cmd, check=check, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    print(completed.stdout.decode("utf-8"))
+    if check and completed.returncode != 0:
+        raise subprocess.CalledProcessError
 
-root_absdir = os.path.dirname(os.path.abspath(__file__))
+blog = os.path.dirname(os.path.abspath(__file__))
+generated = os.path.normpath(os.path.join(blog, '../galdebert.github.io'))
+to_copy = os.path.join(blog, 'to_copy')
 
-with chg_cwd('../galdebert.github.io'):
-    subprocess.run(['git', 'rm', '-r', '.'])
+run(['hugo', '--cleanDestinationDir', '-d', generated], check=True)
+copy_tree('./to_copy', generated)
 
-
-    subprocess.run(['hugo', '-d', '../galdebert.github.io'])
-    subprocess.run(['git', 'commit', '-A'])
-    subprocess.run(['hugo', ])
-
+with chg_cwd(generated):
+    run(['git', 'add', '-A'], check=True)
+    # git commit returns 1 if there is nothing to commit
+    run(['git', 'commit', '-m', 'new generated pages'], check=False)
+    run(['git', 'push'], check=True)

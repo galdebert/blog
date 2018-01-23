@@ -1,28 +1,36 @@
 ---
-title: "How to write a blog in markdown, using Hugo and Github"
-date: 2018-01-18T16:56:13+01:00
+title: "Publish a blog using markdown, Github and Hugo"
+date: 2018-01-23
 draft: false
 menu: main
 ---
 
-I wanted to start a blog about programming, keeping things very minimal, writing just markdown. I tried Hugo, a static page generators along with github pages that host your generated pages. Let's go through the steps for you to get your blog online.
+I wanted to start a blog about programming, keeping things very minimal, writing just markdown. I tried Hugo + Github pages, let's go through the steps to get your markdown powered blog online.
+
+<!--more-->
+
+Note that I don't know if Hugo + Github pages is better than any alternative. But I thought it was better to get something done instead of hesitating forever about the "best" solution.
 
 # Create your github repositories
 
 One thing that is was not super clear to me at first was whether the sources (markdown...) should live in the same repo as the generated pages (html...).
 Actually, not only there is no need mix sources and generated pages, but it's much simpler and cleaner to fully separate those. So let's have 2 repositories:
 
-- **create a repo named _username_/github.io**
-  - You have to respect this name pattern
-  - This will contain the generated pages
-  - For me the repo is https://github.com/galdebert/galdebert.github.io
-  - Clone it in a local _username_/github.io folder (for me: galdebert.github.io)
-  - Look at https://pages.github.com/ for more details
-- **create a repo named blog**
-  - You can use any other name you like
-  - This will contains the sources (markdown...) of your blog
-  - For me the repo is https://github.com/galdebert/blog
-  - Clone it in a local blog folder
+**create a repo named _username_/github.io**
+
+- You have to respect this name pattern
+- This will contain the generated pages
+- For me the repo is https://github.com/galdebert/galdebert.github.io
+- Clone it in a local _username_/github.io folder (for me: galdebert.github.io)
+- Look at https://pages.github.com/ for more details
+
+**create a repo named blog**
+
+- You can use any other name you like
+- This will contains the sources (markdown...) of your blog
+- For me the repo is https://github.com/galdebert/blog
+- Clone it in a local blog folder
+
 
 # Install Hugo
 
@@ -32,19 +40,19 @@ The [install page](https://gohugo.io/getting-started/installing/) has everything
 
 I'm mostly on windows these days, and installing hugo was the occasion to install chocolatey, (one of) the package manager for Windows. I have little experience with chocolatey, but this looks very good. From now on, I'll try using chocolatey as often as possible.
 
-You should read: https://chocolatey.org/install, one option that worked for me was to run the following command from a powershell (ran as administrator):
+You should read https://chocolatey.org/install, one option that worked for me was to run the following command from a powershell (ran as administrator):
 ```
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
 
 ## 2. Install hugo with chocolatey
 
-From a cmd prompt (ran as administrator):
+In your terminal (ran as administrator):
 ```
 choco install hugo -confirm
 ```
 
-The hugo [install page](https://gohugo.io/getting-started/installing/) tells you to install Pygments, but the hugo syntax [highlighting page](https://gohugo.io/content-management/syntax-highlighting/) says there is a built-in default syntax hightlighter named Chroma. Ok, good, let's not install Pygments then.
+The hugo [install page](https://gohugo.io/getting-started/installing/) tells you to install Pygments, but the [hugo syntax highlighting page](https://gohugo.io/content-management/syntax-highlighting/) says there is a built-in default syntax hightlighter named Chroma. Ok, good, let's not install Pygments then.
 
 
 # Creating your blog content
@@ -60,6 +68,8 @@ hugo new site . --force
 `--force` allows to write in the directory even if it's not empty (it already has the usual .git, README, LICENSE).
 
 ## 2. Download and use a theme
+
+In your blog directory:
 ```
 git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
 ```
@@ -69,8 +79,9 @@ theme = "ananke"
 ```
 There are tons of other themes here: https://themes.gohugo.io/
 
-## 3. Add some content
+## 3. Add some markdown
 
+In your blog directory:
 ```
 hugo new posts/my-first-post.md
 ```
@@ -83,33 +94,38 @@ date: 2018-01-19T12:58:17+01:00
 draft: true
 ---
 ```
-called "front matter". Among other things, this allows hugo to organize your posts (links, sort by date...) in the generated html.
+called "front matter". This sets parameters to your markdown file that hugo and the current theme can read to generate html.
 
 ## 4. Generate the html and serve it locally
 
+In your blog directory:
 ```
 hugo server -D
 ```
--D means: include content marked as draft
+`-D` means: include content marked as draft
 
 View the locally generated html in your browser at `http://localhost:1313/`
 
 Now the html is automatically generated everytime the content is changed. So you can see your changes in realtime, everytime the markdown files are saved to disk.
 
+A couple of interesting notes about `hugo server`:
+
+- It writes generated pages in memory, so you won't find any generated pages on your disk
+- It injects JavaScript into the generated pages that allow the LiveReload thing
 
 ## 5. Modify Themes
 
-The hugo doc tells you that you should customize a theme by creating files in your blog folder. So `blog/themes/hyde/static/css/hyde.css` is overriden by your manually created in `blog/static/css/hyde.css`. The idea is that this way you don't modify the original theme and instead yu only applies minimal changes.
+The hugo doc tells you that you should customize a theme by creating files in your blog folder. So `blog/themes/hyde/static/css/hyde.css` is overriden by your manually created `blog/static/css/hyde.css` file. The idea is that you don't modify the original theme and instead you only apply minimal changes.
 
 But this seems a bit awkward to me:
 
-- How does the overriding mechanism mechanism work? Is the granularity per file? If yes, this sounds "not very minimal to me. If no, this sounds quite complicated.
+- How does the overriding mechanism work? Is the granularity per file? If yes, this sounds "not very minimal to me. If no, this sounds quite complicated.
 - At least in these first discovery days, I want to be able to tweak theme1, tweak theme2, and change between those with one flag: `hugo server -D -t theme2`. Using theme specific files in the root folder make this impossible (or very very awkward).
-- Copying files and making changes is not a proper way to track changes, we have git for that, let's use it.
+- To track changes, and merge stuff, we have git, let's use it.
 
 Let's use the hyde theme:
 
-- fork https://github.com/spf13/hyde in https://github.com/username/hyde
+- fork https://github.com/spf13/hyde
 - clone your fork: `git submodule add https://github.com/galdebert/hyde themes/galdebert-hyde`
 - in your `config.toml` set `theme = "galdebert-hyde"`
 - Make your changes in `themes/galdebert-hyde`, commit/push them
@@ -117,52 +133,34 @@ Let's use the hyde theme:
 
 # Publish on github pages
 
-There are different options on the [hosting-on-github](http://gohugo.io/hosting-and-deployment/hosting-on-github/) hugo page (using /docs, gh-pages, master). But the [configuring-a-publishing-source-for-github-pages](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/) github page says: "repository named <username>.github.io are only published from the master branch". So let's do that.
+First change `draft: true` to `draft: false` at the top of your markdown file.
 
-In the config.toml, write the correct address of the site, for me it's :<br>
-`baseURL = "https://galdebert.github.io"`<br>
+There are different options on [this hugo doc page](http://gohugo.io/hosting-and-deployment/hosting-on-github/) (using /docs, gh-pages, master). But [this github help page](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/) says: "repository named <username>.github.io are only published from the master branch". So let's do that.
 
-We could change the publishDir to our github page local repository, ie in `config.toml`:<br>
-`publishDir = "../galdebert.github.io"`<br>
+In the config.toml, write the correct address of the online site, for me it's :<br>
+`baseURL = "https://galdebert.github.io/"`<br>
+Be careful, the trailing / is mandatory. Without it, everything was fine locally, but the site was broken online.
 
-But we won't do that because we want to distinguish iterate-locally-with-LiveReload from publish actions:
+Here are the steps to publish:
 
-- **iterate-locally-with-LiveReload**
-  - relies on `hugo server`
-  - injects JavaScript into the generated pages that allow the LiveReload thing
-  - writes generated pages in memory
-
-- **publish**
-  - writes into galdebert.github.io
-  - needs to remove the content in `galdebert.github.io`, because hugo does not remove any previously generated files
-  - calls plain `hugo` (not `hugo server`) with the destination folder explicitely `hugo -s path/to/galdebert.github.io`
-  - you probably want to `git add`, `git commit`, `git push` after the hugo call
+1. call plain `hugo` (not `hugo server`)
+  - with the destination folder explicitely `-d ../galdebert.github.io` (in my case)
+  - with `--cleanDestinationDir` that clears the destination folder first (this keeps the .git subfolder)
+2. `git add`, `git commit`, `git push`
 
 
-## python script to automate the publish step
+Here is a bash/cmd script that publishes, provided that `galdebert.github.io` and `blog` share the same parent dir:
+```
+hugo --cleanDestinationDir -d ../galdebert.github.io
+cd ../galdebert.github.io
+git add -A
+git commit -m "new generated pages"
+git push
+cd ../blog
+```
 
 
+# A few tips
 
-Now write some markdown in the md file below the "front matter". Let's add aldo some python code to verify that the syntax coloring works fine:
-
-
-{{<highlight python>}}
-#!/usr/bin/env python3
-import os
-from pathlib import Path
-import glob
-
-def norm_path(path: str) -> str:
-    return Path(os.path.normpath(os.path.expanduser(os.path.expandvars(path)))).as_posix()
-
-def glob_rel(glob_expr: str, base_absdir: str) -> str:
-    base_absdir = norm_path(base_absdir)
-    for p in glob.iglob(glob_expr, recursive='**' in glob_expr):
-        yield relpath(p, base_absdir)
-{{</highlight>}}
-`hugo server -wDs ~/Code/hugo/docs -d dev`
-When the content is ready for publishing, use the default public/ dir:
-
-`hugo -s ~/Code/hugo/docs`
-This prevents draft content from accidentally becoming available.
-
+- hugo extracts summaries from your posts, by brutally taking their first N words. To limit the extracted summaries, add `<!--more-->` where you post introduction finishes.
+- Browser cache can be super annoying, [this](https://superuser.com/questions/173210/how-can-i-clear-a-single-site-from-the-cache-in-firefox) was a life saver (read the 2 best answers).
