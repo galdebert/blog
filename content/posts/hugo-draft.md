@@ -58,3 +58,29 @@ with chg_cwd(generated):
     run(['git', 'commit', '-m', 'new generated pages'], check=False)
     run(['git', 'push'], check=True)
 {{< /highlight >}}
+
+
+# hugo content management
+
+https://gohugo.io/content-management/organization/
+
+content
++ about
+  + _index.md   // <- https://example.com/about/
+
+
+
+    example/content/posts
+=> generates => 
+https://example.com/posts/index.html
+
+section = posts"
+
+
+_index.md has a special role in Hugo. It allows you to add front matter and content to your list templates. These templates include those for section templates, taxonomy templates, taxonomy terms templates, and your homepage template.
+
+Tip: You can get a reference to the content and metadata in _index.md using the .Site.GetPage function.
+
+in config.toml
+enableEmoji = true
+:bowtie:

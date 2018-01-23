@@ -5,6 +5,7 @@ title = "Guillaume Aldebert's Blog"
 theme = "galdebert-hyde"
 disqusShortname = "https-galdebert-github-io"
 #googleAnalytics = "Your tracking code"
+enableEmoji = true
 
 [params]
 themeColor = "theme-base-0d"

@@ -139,7 +139,7 @@ There are different options on [this hugo doc page](http://gohugo.io/hosting-and
 
 In the config.toml, write the correct address of the online site, for me it's :<br>
 `baseURL = "https://galdebert.github.io/"`<br>
-Be careful, the trailing / is mandatory. Without it, everything was fine locally, but the site was broken online.
+Be careful, the trailing / is mandatory. Without it, everything was fine locally, but the site was broken online :triumph:.
 
 Here are the steps to publish:
 
