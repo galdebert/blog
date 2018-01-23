@@ -9,5 +9,7 @@ enableEmoji = true
 
 [params]
 themeColor = "theme-base-0d"
-description = "mostly dev"
+#description = "mostly dev"
 copyright = "Guillaume Aldebert. All rights reserved."
+github = "https://github.com/galdebert"
+use_icons = true

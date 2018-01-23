@@ -84,3 +84,19 @@ Tip: You can get a reference to the content and metadata in _index.md using the 
 in config.toml
 enableEmoji = true
 :bowtie:
+
+
+
+in Hyde-X
+[params]
+    gravatarHash = "MD5 hash of your Gravatar email address"
+    
+    # Sidebar social links, these must be full URLs.
+    github = ""
+    bitbucket = ""
+    stackOverflow = ""
+    linkedin = ""
+    googleplus = ""
+    facebook = ""
+    twitter = ""
+    youtube = ""
