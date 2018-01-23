@@ -184,4 +184,4 @@ cd ../blog
 
 - Hugo extracts summaries from your posts, by brutally taking their first N words. To limit the extracted summaries, add `<!--more-->` where your post introduction finishes.
 - Browser cache can be super annoying, [this](https://superuser.com/questions/173210/how-can-i-clear-a-single-site-from-the-cache-in-firefox) was a life saver (read the 2 best answers).
-- You should keep an eye on the terminal where you started the `hug server`, Hugo errors are logged there and can be very useful when you mess up.
+- You should keep an eye on the terminal where you started `hugo server`, Hugo errors are logged there and can be very useful when you mess up.
