@@ -13,7 +13,7 @@ Note that I don't know if Hugo + Github pages is better than any alternative. Bu
 
 # Create your github repositories
 
-One thing that is was not super clear to me at first was whether the sources (markdown...) should live in the same repo as the generated pages (html...).
+One thing that was not super clear to me at first was whether the sources (markdown...) should live in the same repo as the generated pages (html...).
 Actually, not only there is no need mix sources and generated pages, but it's much simpler and cleaner to fully separate those. So let's have 2 repositories:
 
 **create a repo named _username_/github.io**
@@ -162,5 +162,5 @@ cd ../blog
 
 # A few tips
 
-- hugo extracts summaries from your posts, by brutally taking their first N words. To limit the extracted summaries, add `<!--more-->` where you post introduction finishes.
+- hugo extracts summaries from your posts, by brutally taking their first N words. To limit the extracted summaries, add `<!--more-->` where your post introduction finishes.
 - Browser cache can be super annoying, [this](https://superuser.com/questions/173210/how-can-i-clear-a-single-site-from-the-cache-in-firefox) was a life saver (read the 2 best answers).
