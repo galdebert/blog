@@ -159,8 +159,29 @@ git push
 cd ../blog
 ```
 
+To also commit+push the `blog` repo and its `themes/galdebert-hyde` submodule:
+```
+cd themes/galdebert-hyde
+git add -A
+git commit -m "new template sources"
+git push
+
+cd ../..
+git add -A
+git commit -m "new blog sources"
+git push
+
+hugo --cleanDestinationDir -d ../galdebert.github.io
+cd ../galdebert.github.io
+git add -A
+git commit -m "new generated pages"
+git push
+
+cd ../blog
+```
 
 # A few tips
 
-- hugo extracts summaries from your posts, by brutally taking their first N words. To limit the extracted summaries, add `<!--more-->` where your post introduction finishes.
+- Hugo extracts summaries from your posts, by brutally taking their first N words. To limit the extracted summaries, add `<!--more-->` where your post introduction finishes.
 - Browser cache can be super annoying, [this](https://superuser.com/questions/173210/how-can-i-clear-a-single-site-from-the-cache-in-firefox) was a life saver (read the 2 best answers).
+- You should keep an eye on the terminal where you started the `hug server`, Hugo errors are logged there and can be very useful when you mess up.
