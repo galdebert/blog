@@ -1,21 +1,53 @@
 ---
-title: "Hugo Draft"
+title: "Blog Tutorial using markdown, Github and Hugo - Part 2"
 date: 2018-01-18T16:56:13+01:00
 draft: true
 menu: main
 ---
-# Hugo interesting features
 
-From http://gohugo.io/about/features/, the features that catched my attention were:
 
-- Completely cross platform, with easy installation on macOS, Linux, Windows, and more
-- Hugo sites can be hosted anywhere, including ..., GitHub Pages, ...
-- Renders changes on the fly with LiveReload as you develop
-- Powerful theming
-- Integrated Disqus comment support
-- Integrated Google Analytics support
-- Syntax highlighting powered by Pygments
+# Add comments
 
+TODO
+use disqus
+
+# Add google analytics
+
+TODO
+
+# add icons
+
+TODO
+
+# add emojis
+
+enableEmoji = true
+
+# customize the layout
+
+hugo templating
+
+# Syntax Highligthing
+
+TODO
+
+# inject an existing file (instead of copy-paste it in your markdown)
+
+TODO
+
+# remove old commits in your generated pages
+
+TODO
+
+# Learn by example
+
+Get themes and look into their files
+
+
+
+
+
+# python file
 
 Same thing using `publish.py`
 
@@ -60,6 +92,7 @@ with chg_cwd(generated):
 {{< /highlight >}}
 
 
+
 # hugo content management
 
 https://gohugo.io/content-management/organization/
@@ -77,15 +110,14 @@ https://example.com/posts/index.html
 section = posts"
 
 
+# _index.md
+
 _index.md has a special role in Hugo. It allows you to add front matter and content to your list templates. These templates include those for section templates, taxonomy templates, taxonomy terms templates, and your homepage template.
 
 Tip: You can get a reference to the content and metadata in _index.md using the .Site.GetPage function.
 
-in config.toml
-enableEmoji = true
-:bowtie:
 
-
+# gravatar
 
 in Hyde-X
 [params]

@@ -1,5 +1,5 @@
 ---
-title: "Publish a blog using markdown, Github and Hugo"
+title: "Blog Tutorial using markdown, Github and Hugo"
 date: 2018-01-23
 draft: false
 menu: main
@@ -120,7 +120,7 @@ The hugo doc tells you that you should customize a theme by creating files in yo
 But this seems a bit awkward to me:
 
 - How does the overriding mechanism work? Is the granularity per file? If yes, this does not sound very "minimal" to me. If no, this sounds quite complicated.
-- At least in these first discovery days, I want to be able to tweak theme1, tweak theme2, and change between those with one flag: `hugo server -D -t theme2`. Using theme specific files in the root folder make this impossible (or very very awkward).
+- At least in these first discovery days, I want to be able to tweak theme1, tweak theme2, and change between those with one flag: `hugo server -D -t theme2`. Using theme specific files in the root folder makes this impossible (or very very awkward).
 - To track changes, and merge stuff, we have git, let's use it.
 
 Let's use the hyde theme:
