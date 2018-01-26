@@ -2,10 +2,12 @@ baseURL = "https://galdebert.github.io/"
 languageCode = "en-us"
 title = "Guillaume Aldebert's Blog"
 #theme = "ananke"
-theme = "galdebert-hyde"
+#theme = "galdebert-hyde"
+theme = "galdebert-hugo-bootstrap-premium"
 disqusShortname = "https-galdebert-github-io"
 googleAnalytics = "UA-112912662-1"
 enableEmoji = true
+
 
 [params]
 themeColor = "theme-base-0d"
@@ -13,3 +15,29 @@ themeColor = "theme-base-0d"
 copyright = "Guillaume Aldebert. All rights reserved."
 github = "https://github.com/galdebert"
 use_icons = true
+
+switchlang = false
+showRightSidebar = true
+home = "home"
+#BrandImage = "http://blog.appernetic.io/images/apperneticlogo.png" # top header brand image.
+brand = "Guillaume Aldebert's Blog"                                          # brand image alt text.
+topline = "THIS IS THE TOP LINE"
+footline = "code with <i class='fa fa-heart'></i>"
+
+# Sidebar social links.
+bitbucket = "" # Your Bitbucket profile ID
+linkedin = "" # Your LinkedIn profile ID (from public URL)
+googleplus = "" # Your Google+ profile ID
+facebook = "" # Your Facebook profile ID
+twitter = "" # Your Twitter profile ID
+youtube = ""  # Your Youtube channel ID
+flattr = ""  # populate with your flattr uid
+
+
+# bootswatch theme name, unmark and select one: cerulean, cosmo, cyborg, darkly,
+# default, flatly, journal,  lumen, paper, readable, sandstone, simplex,
+# slate, spacelab, superhero, united, yeti.
+#[params.theme]
+#name = "paper"
+
+
