@@ -43,7 +43,7 @@ TODO
 
 Get themes and look into their files
 
-
+hugo server -v
 
 
 
