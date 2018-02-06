@@ -78,7 +78,7 @@ Let's split this source html into a few files:
   - a local copy of https://remarkjs.com/downloads/remark-latest.min.js
 - `common/style.css`
   - in which we copy the text between `<style>...</style>` from the https://remarkjs.com/#1 source
-- `remark-playground/demo.md`
+- `remark-playground/slides.md`
   - in which we copy the text between `<textarea id="source">...</textarea>` from the https://remarkjs.com/#1 source
 - `remark-playground/slides.html`
   - with this content:
@@ -89,9 +89,9 @@ Let's split this source html into a few files:
 
 <head>
   <meta charset="utf-8" />
-  <meta name="keywords" content="remark,remarkjs,markdown,slideshow,presentation" />
-  <meta name="description" content="My demo/test of remark, making sure we this works offline as weel" />
-  <title>my-remark-demo</title>
+  <meta name="keywords" content="remark,remarkjs,markdown,slideshow,presentation,Guillaume Aldebert" />
+  <meta name="description" content="My playground of remark, making sure we this works offline as weel" />
+  <title>remark-playground</title>
   <style>
     @import url("common/style.css"); /* moved the css to a separate common/style.css file */
   </style>
@@ -99,7 +99,7 @@ Let's split this source html into a few files:
 
 <body>
   <textarea id="source">
-    <!-- moved the markdown to a separate demo.md file -->
+    <!-- moved the markdown to a separate slides.md file -->
   </textarea>
   <script src="common/remark-latest.min.js"></script> <!-- modified to point to our local copy -->
   <script>
@@ -108,7 +108,7 @@ Let's split this source html into a few files:
   <script src="common/remark.language.js"></script> <!-- modified to point to our local copy -->
   <script>
     var slideshow = remark.create({
-      sourceUrl: 'demo.md', // reference the separate demo.md file
+      sourceUrl: 'slides.md', // reference the separate slides.md file
       highlightStyle: 'monokai',
       highlightLanguage: 'remark',
       highlightLines: true
@@ -218,9 +218,9 @@ start http://localhost:8000/slides.html
 {{< /highlight >}}
 
 
-# The resulting presentation
+# The resulting slides
 
-You can embed the presentation (see below), or [open the presentation in its own page](/remark-playground/slides.html)
+You can embed the slides (see below), or [open the slides in their own page](/remark-playground/slides.html)
 <div class="aspect_ratio_4_3">
   <div>
     <embed src="/remark-playground/slides.html" style="width: 100%; height: 100%;">
