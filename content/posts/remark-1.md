@@ -1,7 +1,7 @@
 ---
 title: "Slides using markdown and remark"
-date: 2018-02-5
-draft: true
+date: 2018-02-05
+draft: false
 menu: main
 ---
 
@@ -217,12 +217,21 @@ start py -3 -m http.server
 start http://localhost:8000/slides.html
 {{< /highlight >}}
 
-[The resulting presentation](/slides-remark/remark-playground/slides.html)
+
+# The resulting presentation
+
+You can embed the presentation (see below), or [open the presentation in its own page](/remark-playground/slides.html)
+<div class="aspect_ratio_4_3">
+  <div>
+    <embed src="/remark-playground/slides.html" style="width: 100%; height: 100%;">
+  </div>
+</div>
 
 
 # Embed everything in one html ?
 
 I tried https://github.com/BitLooter/htmlark which looks promising but I could not find a way to make it work in the remark case.
+
 
 # Print to PDF
 

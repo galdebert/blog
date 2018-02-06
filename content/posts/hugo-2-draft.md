@@ -1,6 +1,6 @@
 ---
 title: "Blog Tutorial using markdown, Github and Hugo - Part 2"
-date: 2018-01-18T16:56:13+01:00
+date: 2018-01-18
 draft: true
 menu: main
 ---

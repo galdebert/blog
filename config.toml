@@ -1,7 +1,7 @@
 baseURL = "https://galdebert.github.io/"
+staticDir = ["static", "slides"]
 languageCode = "en-us"
 title = "Guillaume Aldebert's Blog"
-#theme = "ananke"
 theme = "galdebert-hyde"
 disqusShortname = "https-galdebert-github-io"
 googleAnalytics = "UA-112912662-1"
