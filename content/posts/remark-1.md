@@ -1,6 +1,6 @@
 ---
 title: "Online and Offline Slides Using Markdown and Remark"
-date: 2018-02-07
+date: 2018-02-06
 draft: false
 menu: main
 ---
