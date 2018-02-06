@@ -5,7 +5,7 @@ draft: false
 menu: main
 ---
 
-I'm a big fan of markdown, this let's you focus on the content, not the style. Markdown (and other similar systems) is commonly used for blogs and documentation. What about slides? Let's try [remark](https://remarkjs.com), and see how we can create slides that work both **online** or **offline**.
+I'm a big fan of markdown, this let's you focus on the content, not the style. Markdown (and other similar systems) is commonly used for blogs and documentation. What about slides? Let's try [remark](https://remarkjs.com), and see how we can create slides that work both **online** and **offline**.
 
 <!--more-->
 
