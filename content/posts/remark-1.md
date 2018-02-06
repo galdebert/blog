@@ -1,6 +1,6 @@
 ---
 title: "Online and Offline Slides Using Markdown and Remark"
-date: 2018-02-05
+date: 2018-02-07
 draft: false
 menu: main
 ---
@@ -220,7 +220,7 @@ start http://localhost:8000/slides.html
 
 # The resulting slides
 
-You can embed the slides (see below), or [open the slides in their own page](/remark-playground/slides.html)
+You can embed the slides (see below) in a page, or [open thme in their own page](/remark-playground/slides.html)
 <div class="aspect_ratio_4_3">
   <div>
     <embed src="/remark-playground/slides.html" style="width: 100%; height: 100%;">
@@ -236,6 +236,7 @@ I tried https://github.com/BitLooter/htmlark which looks promising but I could n
 # Print to PDF
 
 Print to PDF is important to export your slides in one big file (given that one big html is not possible). But you'd better have Chrome:
+
 - Chrome: works well
 - Firefox: only prints the first slide 
 - Edge: prints slides with a nasty offset
