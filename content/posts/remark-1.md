@@ -1,11 +1,11 @@
 ---
-title: "Slides using markdown and remark"
+title: "Online and Offline Slides Using Markdown and Remark"
 date: 2018-02-05
 draft: false
 menu: main
 ---
 
-I'm a big fan of markdown, this let's you focus on the content, not the style. Markdown (and other similar systems) are commonly used for blogs and documentation. What about slides? Let's try a solution that looks pretty nice: [remark](https://remarkjs.com).
+I'm a big fan of markdown, this let's you focus on the content, not the style. Markdown (and other similar systems) is commonly used for blogs and documentation. What about slides? Let's try [remark](https://remarkjs.com), and see how we can create slides that work both **online** or **offline**.
 
 <!--more-->
 
