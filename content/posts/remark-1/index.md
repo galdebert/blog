@@ -135,7 +135,7 @@ You can visit https://fonts.google.com/ to download the fonts...
 Except that the **Droid Serif** font cannot be downloaded for free, so we'll use "Lora" instead that looks similar enough.
 Here is a [link](https://fonts.google.com/?selection.family=Lora|Ubuntu+Mono|Yanone+Kaffeesatz) with the 3 fonts preselected that will lead you to:
 
-![](.remark-1.md.img/2018-02-06-11-22-02.png)
+![families-selected.png](families-selected.png)
 
 You download a `font.zip` file, extract it in your `common` directory, then in `common/style.css`, replace:
 

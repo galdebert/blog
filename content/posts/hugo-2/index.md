@@ -6,6 +6,76 @@ menu: main
 ---
 
 
+# relative image paths are tricky
+
+## images in the static folder
+
+In hugo, you can put your images in the `static` folder
+```
++ static
+  + remark-1
+    + families-selected.png
++ content
+  + posts
+    + remark-1.md    references ![](/remark-1/families-selected.png)
+```
+In `remark-1.md`, `![](/remark-1/families-selected.png)` works.
+Note the leading **/**.
+
+## relative images, th issue
+
+In markdown, especially on github, it's classic to have this directory structure
+```
++ content
+  + posts
+    + remark-1.md
+    + remark-1
+      + families-selected.png
+```
+In `remark-1.md`
+
+|                                      |github,vscode|hugo|
+|--------------------------------------|-------------|----|
+|\!\[\](remark-1/families-selected.png)| ok          | broken |
+|\!\[\](families-selected.png)         | broken      | ok (if the folder name matches the md name)|
+
+## Page bundles
+
+The doc has a some info about **Page Bundles**: [here](https://gohugo.io/content-management/organization/) and [here](https://gohugo.io/about/new-in-032/), which is not crystal clear, but brings a simple answer
+
+But here is a working structure
+
+```
++ content
+  + posts
+    + remark-1
+      + index.md
+      + families-selected.png
+      + subfolder
+        + another.png
+```
+
+|                                      |github,vscode|hugo|
+|--------------------------------------|-------------|----|
+|\!\[\](families-selected.png)         | ok          | ok |
+|\!\[\](subfolder/another.png)         | ok          | ok |
+
+So the name of your post is the folder name, and the markdown file is `index.md`.
+
+
+# hugo relative images
+
+```
++ content
+  + posts
+    + remark-1.md
+      + remark-1
+        + families-selected.png
+```
+in `remark-1.md`:
+![](./remark-1/families-selected.png)
+
+
 # Add comments
 
 TODO
