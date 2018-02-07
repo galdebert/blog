@@ -130,7 +130,7 @@ Now the only external resources the presentation depends on are the fonts:
 
 You can visit https://fonts.google.com/ to download the fonts...
 Except that the **Droid Serif** font cannot be downloaded for free, so we'll use "Lora" instead that looks similar enough.
-Here is a [link](https://fonts.google.com/?selection.family=Lora|Ubuntu+Mono|Yanone+Kaffeesatz) with the 3 fonts preselected:
+Here is a [link](https://fonts.google.com/?selection.family=Lora|Ubuntu+Mono|Yanone+Kaffeesatz) with the 3 fonts preselected that will lead you to:
 
 ![](.remark-1.md.img/2018-02-06-11-22-02.png)
 
@@ -220,13 +220,14 @@ start http://localhost:8000/slides.html
 
 # The resulting slides
 
-You can embed the slides (see below) in a page, or [open thme in their own page](/remark-playground/slides.html)
+You can embed the slides (see below) in a page, or [open them in their own page](/remark-playground/slides.html)
 <div class="aspect_ratio_4_3">
   <div>
     <embed src="/remark-playground/slides.html" style="width: 100%; height: 100%;">
   </div>
 </div>
 
+If you want to run the slides locally and offline, get the content of https://github.com/galdebert/blog/tree/master/slides and run `remark-playground.bat`.
 
 # Embed everything in one html ?
 
