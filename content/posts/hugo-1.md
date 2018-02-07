@@ -41,14 +41,14 @@ The [install page](https://gohugo.io/getting-started/installing/) has everything
 I'm mostly on windows these days, and installing hugo was the occasion to install chocolatey, (one of) the package manager for Windows. I have little experience with chocolatey, but this looks very good. From now on, I'll try using chocolatey as often as possible.
 
 You should read https://chocolatey.org/install, one option that worked for me was to run the following command from a powershell (ran as administrator):
-```
+```ps
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
 
 ## 2. Install hugo with chocolatey
 
 In your terminal (ran as administrator):
-```
+```bash
 choco install hugo -confirm
 ```
 
@@ -62,7 +62,7 @@ More details here: http://gohugo.io/getting-started/quick-start/
 ## 1. Create the basic directory structure
 
 In your blog directory:
-```
+```bash
 hugo new site . --force
 ```
 `--force` allows to write in the directory even if it's not empty (it already has the usual .git, README, LICENSE).
@@ -70,11 +70,14 @@ hugo new site . --force
 ## 2. Download and use a theme
 
 In your blog directory:
-```
+
+```bash
 git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
 ```
+
 and add the following line to `config.toml`
-```
+
+```toml
 theme = "ananke"
 ```
 There are tons of other themes here: https://themes.gohugo.io/
@@ -82,24 +85,28 @@ There are tons of other themes here: https://themes.gohugo.io/
 ## 3. Add some markdown
 
 In your blog directory:
-```
+
+```bash
 hugo new posts/my-first-post.md
 ```
+
 This creates the file: `./content/posts/my-first-post.md`<br>
 You can also create the file manually, but `hugo new` adds a few lines at the start of the md file:
-```
+
+```yaml
 ---
 title: "My First Post"
 date: 2018-01-19T12:58:17+01:00
 draft: true
 ---
 ```
+
 called "front matter". This sets parameters to your markdown file that hugo and the current theme can read to generate html.
 
 ## 4. Generate the html and serve it locally
 
 In your blog directory:
-```
+```bash
 hugo server -D
 ```
 `-D` means: include content marked as draft
@@ -150,7 +157,7 @@ Here are the steps to publish:
 
 
 Here is a bash/cmd script that publishes, provided that `galdebert.github.io` and `blog` share the same parent dir:
-```
+```bash
 hugo --cleanDestinationDir -d ../galdebert.github.io
 cd ../galdebert.github.io
 git add -A
@@ -160,7 +167,7 @@ cd ../blog
 ```
 
 To also commit+push the `blog` repo and its `themes/galdebert-hyde` submodule:
-```
+```bash
 cd themes/galdebert-hyde
 git add -A
 git commit -m "new template sources"

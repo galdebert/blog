@@ -51,7 +51,7 @@ hugo server -v
 
 Same thing using `publish.py`
 
-{{< highlight python >}}
+```python
 #!/usr/bin/env python3
 
 import os
@@ -89,7 +89,7 @@ with chg_cwd(generated):
     # git commit returns 1 if there is nothing to commit
     run(['git', 'commit', '-m', 'new generated pages'], check=False)
     run(['git', 'push'], check=True)
-{{< /highlight >}}
+```
 
 
 

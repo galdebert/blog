@@ -39,7 +39,7 @@ Let's take advantage of this, we'll take https://remarkjs.com/#1 and make a twea
 
 remark html structure:
 
-{{< highlight html >}}
+```html
 <html>
 
 <head>
@@ -59,7 +59,7 @@ remark html structure:
 </body>
 
 </html>
-{{< /highlight >}}
+```
 
 Let's split this source html into a few files:
 ```
@@ -83,17 +83,18 @@ Let's split this source html into a few files:
 - `remark-playground/slides.html`
   - with this content:
 
-{{< highlight html >}}
+{{< highlight html "hl_lines=11 17 20 25 28" >}}
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8" />
   <meta name="keywords" content="remark,remarkjs,markdown,slideshow,presentation,Guillaume Aldebert" />
-  <meta name="description" content="My playground of remark, making sure this works offline as well" />
+  <meta name="description" content="My playground of remark, making sure it works offline as well" />
   <title>remark-playground</title>
   <style>
-    @import url("../common/style.css"); /* moved the css to a separate file */
+    /* moved the css to a separate file */
+    @import url("../common/style.css"); 
   </style>
 </head>
 
@@ -101,11 +102,13 @@ Let's split this source html into a few files:
   <textarea id="source">
     <!-- moved the markdown to a separate slides.md file -->
   </textarea>
-  <script src="../common/remark-latest.min.js"></script> <!-- modified to point to our local copy -->
+  <!-- modified to point to our local copy -->
+  <script src="../common/remark-latest.min.js"></script>
   <script>
     var hljs = remark.highlighter.engine;
   </script>
-  <script src="../common/remark.language.js"></script> <!-- modified to point to our local copy -->
+  <!-- modified to point to our local copy -->
+  <script src="../common/remark.language.js"></script>
   <script>
     var slideshow = remark.create({
       sourceUrl: 'slides.md', // reference the separate slides.md file
@@ -122,11 +125,11 @@ Let's split this source html into a few files:
 
 Now the only external resources the presentation depends on are the fonts:
 
-{{< highlight css >}}
+```css
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
 @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-{{< /highlight >}}
+```
 
 You can visit https://fonts.google.com/ to download the fonts...
 Except that the **Droid Serif** font cannot be downloaded for free, so we'll use "Lora" instead that looks similar enough.
@@ -136,7 +139,7 @@ Here is a [link](https://fonts.google.com/?selection.family=Lora|Ubuntu+Mono|Yan
 
 You download a `font.zip` file, extract it in your `common` directory, then in `common/style.css`, replace:
 
-{{< highlight css >}}
+```css
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
 @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
@@ -144,11 +147,11 @@ You download a `font.zip` file, extract it in your `common` directory, then in `
 body {
   font-family: 'Droid Serif';
 }
-{{< /highlight >}}
+```
 
 with
 
-{{< highlight css >}}
+```css
 /* Lora used for body */
 @font-face{
   font-family: 'Lora';
@@ -204,18 +207,17 @@ with
   font-style: italic;
 }
 
-
 body {
   font-family: 'Lora';
 }
-{{< /highlight >}}
+```
 
 Even if all resources are local, to run the presentation, you need to start an http server. To run the presentation, on windows, create a **run.bat** file:
 
-{{< highlight cmd>}}
+```cmd
 start py -3 -m http.server
 start http://localhost:8000/slides.html
-{{< /highlight >}}
+```
 
 
 # The resulting slides

@@ -3,12 +3,13 @@ staticDir = ["static", "slides"]
 languageCode = "en-us"
 title = "Guillaume Aldebert's Blog"
 theme = "galdebert-hyde"
+pygmentsCodeFences = true
 disqusShortname = "https-galdebert-github-io"
 googleAnalytics = "UA-112912662-1"
 enableEmoji = true
 
 [params]
-themeColor = "theme-base-0d"
+themeColor = "theme-base-0c" # 0d 09 0c
 #description = "mostly dev"
 copyright = "Guillaume Aldebert. All rights reserved."
 github = "https://github.com/galdebert"
