@@ -90,10 +90,10 @@ Let's split this source html into a few files:
 <head>
   <meta charset="utf-8" />
   <meta name="keywords" content="remark,remarkjs,markdown,slideshow,presentation,Guillaume Aldebert" />
-  <meta name="description" content="My playground of remark, making sure we this works offline as weel" />
+  <meta name="description" content="My playground of remark, making sure this works offline as well" />
   <title>remark-playground</title>
   <style>
-    @import url("common/style.css"); /* moved the css to a separate common/style.css file */
+    @import url("../common/style.css"); /* moved the css to a separate file */
   </style>
 </head>
 
@@ -101,11 +101,11 @@ Let's split this source html into a few files:
   <textarea id="source">
     <!-- moved the markdown to a separate slides.md file -->
   </textarea>
-  <script src="common/remark-latest.min.js"></script> <!-- modified to point to our local copy -->
+  <script src="../common/remark-latest.min.js"></script> <!-- modified to point to our local copy -->
   <script>
     var hljs = remark.highlighter.engine;
   </script>
-  <script src="common/remark.language.js"></script> <!-- modified to point to our local copy -->
+  <script src="../common/remark.language.js"></script> <!-- modified to point to our local copy -->
   <script>
     var slideshow = remark.create({
       sourceUrl: 'slides.md', // reference the separate slides.md file
