@@ -1,0 +1,1 @@
+reveal-md my-reveal.md --theme solarized --static .
