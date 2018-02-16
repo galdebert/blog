@@ -7,19 +7,26 @@
   <meta name="description" content="My playground for remark, making sure this works offline as well" />
   <title>remark-playground</title>
   <style type="text/css">
+    @import url("common/fonts.css");
     @import url("common/style.css");
   </style>
 </head>
 
 <body>
   <textarea id="source">
-name: inverse
+
+class: beige-background
 layout: true
-class: center, middle, inverse
 
 ---
+class: center, middle
 
-# Guillaume's remark playground
+<!-- cannot use "template: template-that-is-excluded" -->
+<!-- must use "template: template-that-is-a-layout" -->
+<!-- so must use "layout: false "in the next slide after any slide with template: template-that-is-a-layout -->
+<!-- conclusion: do not use template, use class: mystuff -->
+
+# REMARK PLAYGROUND
 this is a tweaked version of the [official remark introduction](https://remarkjs.com)<br>
 and this version does **not** need a http server to run locally
 
@@ -28,18 +35,17 @@ Go directly to [remark project site](https://github.com/gnab/remark)
 ]
 
 ---
+class: center, middle, inverse
 
 ## What is it and why should I be using it?
 
 ---
 
-layout: false
-
-.left-column[
+.title-left-column[
 ## What is it?
 ]
 
-.right-column[
+.content-right-column[
 
 A simple, in-browser, Markdown-driven slideshow tool targeted at people who know their way around HTML and CSS, featuring:
 
@@ -58,12 +64,12 @@ A simple, in-browser, Markdown-driven slideshow tool targeted at people who know
 
 ---
 
-.left-column[
+.title-left-column[
 ## What is it?
 ## Why use it?
 ]
 
-.right-column[
+.content-right-column[
 
 If your ideal slideshow creation workflow contains any of the following steps:
 
@@ -82,12 +88,12 @@ Then remark might be perfect for your next.red[*] slideshow!
 
 ---
 
-.left-column[
+.title-left-column[
 ## What is it?
 ## Why use it?
 ]
 
-.right-column[
+.content-right-column[
 
 As the slideshow is expressed using Markdown, you may:
 
@@ -118,12 +124,12 @@ template: inverse
 
 name: how
 
-.left-column[
+.title-left-column[
 ## How does it work?
 ### - Markdown
 ]
 
-.right-column[
+.content-right-column[
 
 A Markdown-formatted chunk of text is transformed into individual slides by JavaScript running in the browser:
 
@@ -159,13 +165,13 @@ Have a look at the [Markdown website](http://daringfireball.net/projects/markdow
 
 ---
 
-.left-column[
+.title-left-column[
 ## How does it work?
 ### - Markdown
 ### - Inside HTML
 ]
 
-.right-column[
+.content-right-column[
 
 A simple HTML document is needed for hosting the styles, Markdown and the generated slides themselves:
 
@@ -206,11 +212,11 @@ template: inverse
 
 ---
 
-.left-column[
+.title-left-column[
 ## Markdown extensions
 ]
 
-.right-column[
+.content-right-column[
 
 To help out with slide layout and formatting, a few Markdown extensions have been included:
 
@@ -223,12 +229,12 @@ To help out with slide layout and formatting, a few Markdown extensions have bee
 
 ---
 
-.left-column[
+.title-left-column[
 ## Markdown extensions
 ### - Slide properties
 ]
 
-.right-column[
+.content-right-column[
 
 Initial lines containing key-value pairs are extracted as slide properties:
 
@@ -254,13 +260,13 @@ See the [complete list](https://github.com/gnab/remark/wiki/Markdown#slide-prope
 
 ---
 
-.left-column[
+.title-left-column[
 ## Markdown extensions
 ### - Slide properties
 ### - Content classes
 ]
 
-.right-column[
+.content-right-column[
 Any occurences of one or more dotted CSS class names followed by square brackets are replaced with the contents of the brackets with the specified classes applied:
 
 ```remark
@@ -278,14 +284,14 @@ Resulting HTML extract:
 
 ---
 
-.left-column[
+.title-left-column[
 ## Markdown extensions
 ### - Slide properties
 ### - Content classes
 ### - Syntax Highlighting
 ]
 
-.right-column[
+.content-right-column[
 
 Code blocks can be syntax highlighted by specifying a language from the set of [supported languages](https://github.com/gnab/remark/wiki/Configuration#highlighting).
 
@@ -319,11 +325,11 @@ A number of highlighting [styles](https://github.com/gnab/remark/wiki/Configurat
 
 ---
 
-.left-column[
+.title-left-column[
 ## Presenter mode
 ]
 
-.right-column[
+.content-right-column[
 
 To help out with giving presentations, a presenter mode comprising the
 following features is provided:
@@ -338,12 +344,12 @@ following features is provided:
 
 ---
 
-.left-column[
+.title-left-column[
   ## Presenter mode
   ### - Inline notes
 ]
 
-.right-column[
+.content-right-column[
 
 Just like three dashes separate slides,
 three question marks separate slide content from slide notes:
@@ -378,13 +384,13 @@ Now press **P** to toggle it back off.
 
 ---
 
-.left-column[
+.title-left-column[
 ## Presenter mode
 ### - Inline notes
 ### - Cloned view
 ]
 
-.right-column[
+.content-right-column[
 
 Presenter mode of course makes no sense to the audience.
 
@@ -408,11 +414,11 @@ template: inverse
 
 ---
 
-.left-column[
+.title-left-column[
 ## Getting started
 ]
 
-.right-column[
+.content-right-column[
 
 Getting up and running is done in only a few steps:
 
@@ -427,9 +433,11 @@ For more information on using remark, please check out the [wiki](https://github
 
 # Images
 
-todo: something useful with nicer images
+some text
 
-![](remark-playground-no-http-server/2018-02-06-10-42-03.png)
+<img src="remark-playground/ruins.jpg" width="100%">
+
+some text
 
 ---
 
@@ -446,6 +454,94 @@ var x = 0;
 ```
 
 ---
+
+# Test 50-50 columns
+
+.two-columns-left[
+## My title left
+
+- bullet 1, **bullet 1**, bullet 1, bullet 1, bullet 1, bullet 1, bullet 1, bullet 1, bullet 1, bullet 1
+
+- bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2
+]
+
+.two-columns-right[
+## My title right
+
+- bullet 1, **bullet 1**, bullet 1, bullet 1, bullet 1, bullet 1, bullet 1, bullet 1, bullet 1, bullet 1
+
+- bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2
+]
+
+---
+
+# Test 50-50 columns
+
+.two-columns-left[
+## My title left
+
+- bullet 1, **bullet 1**, bullet 1, bullet 1, bullet 1, bullet 1, bullet 1, bullet 1, bullet 1, bullet 1
+
+- bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2, bullet 2
+]
+
+.two-columns-right[
+
+<!-- do not use ![](remark-playground/ruins.jpg) because it's unclear how to set width -->
+<img src="remark-playground/ruins.jpg" width="100%">
+
+]
+
+---
+
+class: center, middle, inverse
+background-image: url(remark-playground/ruins.jpg)
+background-size: cover
+
+# Background image
+
+---
+
+class: center, middle
+background: radial-gradient(white, cyan)
+
+# Background gradient
+
+---
+
+# Title
+
+--
+- bullet point fragment
+
+
+--
+- bullet point fragment
+
+
+--
+- bullet point fragment
+
+---
+
+<!-- layout: true sets this as the default template -->
+
+layout: true
+class: center, middle, inverse
+
+---
+
+# slide with layout
+
+---
+
+# another slide with layout
+
+---
+
+<!-- layout: false restes to the default template -->
+
+layout: false
 
 name: last-page
 template: inverse
