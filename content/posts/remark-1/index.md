@@ -68,6 +68,7 @@ Let's split this source html into a few files:
   + remark.language.js
   + remark-latest.min.js
   + style.css
+  + fonts.css
 + remark-playground.html
 ```
 
@@ -77,6 +78,8 @@ Let's split this source html into a few files:
   - a local copy of https://remarkjs.com/downloads/remark-latest.min.js
 - `common/style.css`
   - in which we copy the text between `<style>...</style>` from the https://remarkjs.com/#1 source
+- `common/fonts.css`
+  - content a bit below
 - `remark-playground.html`
   - content a bit below
 
@@ -168,6 +171,14 @@ body {
 with
 
 ```css
+body {
+  font-family: 'Lora';
+}
+```
+
+and create a new separate file `common/fonts.css`:
+
+```css
 /* Lora used for body */
 @font-face{
   font-family: 'Lora';
@@ -222,11 +233,8 @@ with
   font-weight: bold;
   font-style: italic;
 }
-
-body {
-  font-family: 'Lora';
-}
 ```
+
 
 # The resulting slides
 
