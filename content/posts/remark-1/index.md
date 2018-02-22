@@ -259,6 +259,5 @@ Here we go, you have a remark html file that:
 
 - can be opened locally in your browser
 - can be hosted online
-- we also put css and javascript in a common file, so 
 
 Now you can start [looking into](https://github.com/gnab/remark/wiki) how to layout your slides using the remark markdown-like syntax.
