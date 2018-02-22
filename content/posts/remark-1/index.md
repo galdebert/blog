@@ -256,6 +256,7 @@ If you want to run the slides locally and offline, get the content of https://gi
 # Conclusion
 
 Here we go, you have a remark html file that:
+
 - can be opened locally in your browser
 - can be hosted online
 - we also put css and javascript in a common file, so 
