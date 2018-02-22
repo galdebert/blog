@@ -5,7 +5,7 @@ draft: false
 menu: main
 ---
 
-I'm a big fan of Markdown, it let you focus on the content, not the style. Markdown (and other similar systems) is commonly used for blogs and documentation. What about slides? Let's try [remark](https://remarkjs.com), and see how we can create slides that work both **online** and **offline**.
+I'm a big fan of Markdown, it lets you focus on the content, not the style. Markdown (and other similar systems) is commonly used for blogs and documentation. What about slides? Let's try [remark](https://remarkjs.com), and see how we can create slides that work both **online** and **offline**.
 
 <!--more-->
 
@@ -18,18 +18,17 @@ There are 2 "remark" things:
 
 # remark resources
 
-There are 3 resources about **remark**:
+There are 3 important sources of information about **remark**:
 
 - https://remarkjs.com is the demo/introduction slideshow, you should start here
 - https://github.com/gnab/remark/wiki is the documentation
-- https://github.com/gnab/remark is the github repo, note you don't really need to clone it to use remark
-- note there is no npm package for remark, because remark javascript code lives in the browser
+- https://github.com/gnab/remark is the github repo, note you don't need to clone it to use remark
 
 # remark html structure
 
 remark presentations are html files with a simple structure. So when you find a remark-generated presentation that looks good, it's quite easy to read the html source and extract the bits you like for your own usage.
 
-Let's take advantage of this, we'll take https://remarkjs.com/#1 and make a tweakable **and 100% offline** version of it.
+Let's take advantage of this, we'll take https://remarkjs.com/#1 and make a tweakable, **offline**, **http server free**, version of it.
 
 - visit https://remarkjs.com/#1
 - view the source html, it has 3 main sections:
@@ -37,7 +36,7 @@ Let's take advantage of this, we'll take https://remarkjs.com/#1 and make a twea
   - in the middle `<textarea id="source">...</textarea>` contains the markdown
   - at the end, the multiple `<script>...</script>` contain the javascript
 
-remark html structure:
+*The remark html structure:*
 
 ```html
 <html>
@@ -52,7 +51,9 @@ remark html structure:
 
 <body>
   <textarea id="source">
-    my_markdown
+    ...
+    the markdown
+    ...
   </textarea>
   <script>my_javascript</script>
   <script>my_other_javascript</script>
@@ -67,9 +68,7 @@ Let's split this source html into a few files:
   + remark.language.js
   + remark-latest.min.js
   + style.css
-+ remark-playground
-  + slides.md
-  + slides.html
++ remark-playground.html
 ```
 
 - `common/remark.language.js`
@@ -78,12 +77,27 @@ Let's split this source html into a few files:
   - a local copy of https://remarkjs.com/downloads/remark-latest.min.js
 - `common/style.css`
   - in which we copy the text between `<style>...</style>` from the https://remarkjs.com/#1 source
-- `remark-playground/slides.md`
-  - in which we copy the text between `<textarea id="source">...</textarea>` from the https://remarkjs.com/#1 source
-- `remark-playground/slides.html`
-  - with this content:
+- `remark-playground.html`
+  - content a bit below
 
-{{< highlight html "hl_lines=11 17 20 25 28" >}}
+We respected 2 important constraints here:
+
+- We kept the markdown inside the html, as opposed to put it a separatd .md file
+- The `common` directory is a sub directory of `remark-playground.html` containing directory
+
+Those 2 constraints allow to open the presentation by simply double-clicking on the html. 
+
+If you don't respect the constraint, you need to run a local http server. It's a 2-liners, but still very annoying for people who receive the presentation in a zip by mail.
+
+*The local http server 2-liners for info:*
+```cmd
+start py -3 -m http.server
+start http://localhost:8000/remark-playground.html
+```
+
+*The remark-playground.html content*:
+
+```html
 <!DOCTYPE html>
 <html>
 
@@ -93,25 +107,27 @@ Let's split this source html into a few files:
   <meta name="description" content="My playground of remark, making sure it works offline as well" />
   <title>remark-playground</title>
   <style>
-    /* moved the css to a separate file */
-    @import url("../common/style.css"); 
+    /* modified to point to our local separate files */
+    @import url("common/fonts.css");
+    @import url("common/style.css"); 
   </style>
 </head>
 
 <body>
   <textarea id="source">
-    <!-- moved the markdown to a separate slides.md file -->
+    ...
+    the markdown
+    ...
   </textarea>
   <!-- modified to point to our local copy -->
-  <script src="../common/remark-latest.min.js"></script>
+  <script src="common/remark-latest.min.js"></script>
   <script>
     var hljs = remark.highlighter.engine;
   </script>
   <!-- modified to point to our local copy -->
-  <script src="../common/remark.language.js"></script>
+  <script src="common/remark.language.js"></script>
   <script>
     var slideshow = remark.create({
-      sourceUrl: 'slides.md', // reference the separate slides.md file
       highlightStyle: 'monokai',
       highlightLanguage: 'remark',
       highlightLines: true
@@ -121,9 +137,9 @@ Let's split this source html into a few files:
 </body>
 
 </html>
-{{< /highlight >}}
+```
 
-Now the only external resources the presentation depends on are the fonts:
+Now, the only online dependencies of the presentation are the fonts:
 
 ```css
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
@@ -212,35 +228,28 @@ body {
 }
 ```
 
-Even if all resources are local, to run the presentation, you need to start an http server. To run the presentation, on windows, create a **run.bat** file:
-
-```cmd
-start py -3 -m http.server
-start http://localhost:8000/slides.html
-```
-
-
 # The resulting slides
 
-You can embed the slides (see below) in a page, or [open them in their own page](/remark-playground/slides.html)
+You can:
+
+- open slides locally, just open `file:///your/local/path/remark-playground.html` in your browser
+- open slides online in their [own page](/remark-playground.html)
+- embed the online slides in another page like this:
+
 <div class="aspect_ratio_4_3">
   <div>
-    <embed src="/remark-playground/slides.html" style="width: 100%; height: 100%;">
+    <embed src="/remark-playground.html" style="width: 100%; height: 100%;">
   </div>
 </div>
 
-If you want to run the slides locally and offline, get the content of https://github.com/galdebert/blog/tree/master/slides and run `remark-playground.bat`.
-
-# Embed everything in one html ?
-
-I tried https://github.com/BitLooter/htmlark which looks promising but I could not find a way to make it work in the remark case.
+If you want to run the slides locally and offline, get the content of https://github.com/galdebert/blog/tree/master/slides.
 
 
-# Print to PDF
+# Conclusion
 
-Print to PDF is important to export your slides in one big file (given that one big html is not possible). But you'd better have Chrome:
+Here we go, you have a remark html file that:
+- can be opened locally in your browser
+- can be hosted online
+- we also put css and javascript in a common file, so 
 
-- Chrome: works well
-- Firefox: only prints the first slide 
-- Edge: prints slides with a nasty offset
-
+Now you can start [looking into](https://github.com/gnab/remark/wiki) how to layout your slides using the remark markdown-like syntax.
